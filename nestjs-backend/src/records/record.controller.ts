@@ -14,7 +14,7 @@ import { UseGuards } from '@nestjs/common/decorators';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseMessage } from 'src/common/handlers/response-message';
 import { PaginationQuery } from 'src/common/interfaces/request-query';
-import { CreateRecordDto } from './dto/create-record.dto';
+import { CreateManyRecordDto, CreateRecordDto } from './dto/create-record.dto';
 import { UpdateRecordDto } from './dto/update-record.dto';
 import { RecordService } from './record.service';
 import { AuthGuard } from '../auth/auth.guard';
@@ -55,6 +55,15 @@ export class RecordController {
   @ResponseMessage('New record has been successfully created.')
   async create(@Body() body: CreateRecordDto) {
     return this.recordService.create(body);
+  }
+
+  @Post('/many')
+  // @UseGuards(AuthGuard)
+  // @ApiBearerAuth('JWT-auth')
+  @UsePipes(ValidationPipe)
+  @ResponseMessage('New records have been successfully created.')
+  async CreateAppAccessMany(@Body() body: CreateManyRecordDto) {
+    return this.recordService.createMany(body.dataList);
   }
 
   @Patch(':id')

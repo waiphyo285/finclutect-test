@@ -34,47 +34,49 @@ function SearchInput({ searchOption, handleSearchBlur }) {
   };
 
   return (
-    <Box>
-      <>
-        {canAccessFilter && (
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="column">Column</InputLabel>
-            <Select
-              id="column"
-              value={searchInfo.key}
-              onChange={(event) => handleSearchInfo('key', event.target.value)}
-              label="Column"
-              autoWidth
-            >
-              {searchOption.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.displayName}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )}
+    <>
+      {canAccessFilter && (
+        <FormControl size="small" variant="outlined">
+          <InputLabel htmlFor="column">Column</InputLabel>
+          <Select
+            id="column"
+            value={searchInfo.key}
+            onChange={(event) => handleSearchInfo('key', event.target.value)}
+            label="Column"
+            autoWidth
+          >
+            {searchOption.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.displayName}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )}
 
-        {canAccessSerach && (
-          <FormControl sx={{ mx: 1, width: '200px' }} variant="outlined">
-            <InputLabel htmlFor="search">Search</InputLabel>
-            <OutlinedInput
-              id="search"
-              type={'text'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton aria-label="search">
-                    <SearchOutlined />
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Search"
-              onBlur={(event) => handleSearchInfo('value', event.target.value)}
-            />
-          </FormControl>
-        )}
-      </>
-    </Box>
+      {canAccessSerach && (
+        <FormControl
+          size="small"
+          variant="outlined"
+          sx={{ mx: 1, width: '200px' }}
+        >
+          <InputLabel htmlFor="search">Search</InputLabel>
+          <OutlinedInput
+            id="search"
+            type={'text'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton aria-label="search">
+                  <SearchOutlined />
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Search"
+            onBlur={(event) => handleSearchInfo('value', event.target.value)}
+          />
+        </FormControl>
+      )}
+    </>
   );
 }
 

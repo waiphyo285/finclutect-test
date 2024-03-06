@@ -33,3 +33,8 @@ export class CreateRecordDto {
   @ApiProperty()
   business_category: string;
 }
+
+export class CreateManyRecordDto {
+  @ApiProperty({ type: [CreateRecordDto] })
+  dataList: CreateRecordDto[];
+}

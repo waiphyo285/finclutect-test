@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-import { Card, CardHeader } from '@mui/material';
+import { Box, Card, CardHeader } from '@mui/material';
+import CsvDownloadButton from 'react-json-to-csv';
 
 import FormModals from '../ModalForm';
 import DataGrid from '@/components/DataGrid';
@@ -178,10 +179,26 @@ function DataTable({
         // title=""
         sx={{ my: 1 }}
         action={
-          <SearchInput
-            searchOption={searchOption}
-            handleSearchBlur={handleSearchBlur}
-          />
+          <Box>
+            <CsvDownloadButton
+              style={{
+                height: '36px',
+                margin: '0px 6px',
+                padding: '6px 24px',
+                display: 'inline-block',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+              data={rows}
+              children="Export .csv"
+              filename="finreport.csv"
+            />
+            <SearchInput
+              searchOption={searchOption}
+              handleSearchBlur={handleSearchBlur}
+            />
+          </Box>
         }
       />
 

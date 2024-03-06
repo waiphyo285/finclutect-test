@@ -11,7 +11,7 @@ function DashboardOne() {
 
   return (
     <PageWrapper pageValues={pageValues} createAction={<></>}>
-      {['Users', 'User roles', 'Languages', 'Records'].map((card, index) => (
+      {['Users', 'User roles', , 'Records'].map((card, index) => (
         <Grid item key={index} xs={12} sm={3}>
           <Card>
             <CardContent>
@@ -19,7 +19,7 @@ function DashboardOne() {
                 {card}
               </Typography>
               <Typography variant="h3" align="center" marginTop={1}>
-                1 {/* {Math.floor(Math.random() * 100) + 1} */}
+                {Math.floor(Math.random() * 100) + 1}
               </Typography>
             </CardContent>
           </Card>

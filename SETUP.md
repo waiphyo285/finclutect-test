@@ -63,6 +63,22 @@ and replace body with
 
 and execute.
 
+If you want to import many record, please go to
+
+```
+http://localhost:9999/api-docs/#/Record/RecordController_CreateAppAccessMany
+```
+
+them copy data from ./mockdata.json and modify body
+
+```
+{
+  "dataList": PASTE HERE!
+}
+```
+
+and execute.
+
 ---
 
 ### For frontend
@@ -74,7 +90,7 @@ npm install
 npm run dev
 ```
 
-And go to
+and go to
 
 ```
 http://localhost:3000

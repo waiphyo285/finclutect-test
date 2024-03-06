@@ -49,6 +49,24 @@ export class RecordService {
     return await this.prisma.fincluRecord.create({ data: body });
   }
 
+  async createMany(dataList: any): Promise<any> {
+    const newDataList = dataList.map((item) => {
+      return {
+        application_id: item.application_id,
+        sales_agent_id: item.sales_agent_id,
+        account_type: item.account_type,
+        application_status: item.application_status,
+        business_category: item.business_category,
+      };
+    });
+
+    const createdObj = await this.prisma.fincluRecord.createMany({
+      data: newDataList,
+    });
+
+    return createdObj.count;
+  }
+
   async update(id: string, body: UpdateRecordDto): Promise<FincluRecord> {
     return await this.prisma.fincluRecord.update({
       where: {
