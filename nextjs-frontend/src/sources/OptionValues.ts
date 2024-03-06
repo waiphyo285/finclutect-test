@@ -9,5 +9,10 @@ export const options = {
     { value: 2, label: 'Level 2 (Enables higher)' },
     { value: 3, label: 'Level 3 (Enables high)' },
     { value: 4, label: 'Level 4 (Enables low)' }
+  ],
+
+  businessCategory: [
+    { value: 'Simple', label: 'Simple' },
+    { value: 'complex', label: 'Complex' }
   ]
 };

@@ -4,44 +4,30 @@ import { Helpers } from 'src/utilities/helpers';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { UpdateRecordDto } from './dto/update-record.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Record } from '@prisma/client';
+import { FincluRecord } from '@prisma/client';
 
 @Injectable()
 export class RecordService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getAllByFilter(query: any): Promise<Record[]> {
-    return await this.prisma.record.findMany({
+  async getAllByFilter(query: any): Promise<FincluRecord[]> {
+    return await this.prisma.fincluRecord.findMany({
       where: query,
-      include: {
-        language: {
-          select: {
-            name: true,
-          },
-        },
-      },
     });
   }
 
   async getByPagination(query: any): Promise<any> {
     const { filterObj, searchKey, searchVal, skip, take, sortKey, sortVal } =
-      Helpers.queryOption(query, { searchKey: 'name' });
+      Helpers.queryOption(query, { searchKey: 'sales_agent_id' });
 
-    const result = await this.prisma.record.findMany({
+    const result = await this.prisma.fincluRecord.findMany({
       where: { [searchKey]: { contains: searchVal }, ...filterObj },
-      include: {
-        language: {
-          select: {
-            name: true,
-          },
-        },
-      },
       orderBy: { [sortKey]: sortVal },
       skip: skip * take,
       take: take,
     });
 
-    const total = await this.prisma.record.count();
+    const total = await this.prisma.fincluRecord.count();
 
     return {
       data: result,
@@ -54,24 +40,17 @@ export class RecordService {
   }
 
   async getOneById(id: string): Promise<any> {
-    return await this.prisma.record.findUnique({
+    return await this.prisma.fincluRecord.findUnique({
       where: { id: id },
-      include: {
-        language: {
-          select: {
-            name: true,
-          },
-        },
-      },
     });
   }
 
-  async create(body: CreateRecordDto): Promise<Record> {
-    return await this.prisma.record.create({ data: body });
+  async create(body: CreateRecordDto): Promise<FincluRecord> {
+    return await this.prisma.fincluRecord.create({ data: body });
   }
 
-  async update(id: string, body: UpdateRecordDto): Promise<Record> {
-    return await this.prisma.record.update({
+  async update(id: string, body: UpdateRecordDto): Promise<FincluRecord> {
+    return await this.prisma.fincluRecord.update({
       where: {
         id: id,
       },
@@ -79,7 +58,7 @@ export class RecordService {
     });
   }
 
-  async delete(id: string): Promise<Record> {
-    return await this.prisma.record.delete({ where: { id: id } });
+  async delete(id: string): Promise<FincluRecord> {
+    return await this.prisma.fincluRecord.delete({ where: { id: id } });
   }
 }

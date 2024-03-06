@@ -232,33 +232,33 @@ export const recordInitialValues = [
     required: false
   },
   {
-    key: 'name',
+    key: 'application_id',
     type: formikType.STRING,
     value: '',
     required: true
   },
   {
-    key: 'category',
+    key: 'sales_agent_id',
     type: formikType.STRING,
     value: '',
     required: true
   },
   {
-    key: 'page_count',
-    type: formikType.NUMBER,
-    value: 1,
-    required: true
-  },
-  {
-    key: 'language_id',
-    type: formikType.TABLE_ID,
+    key: 'account_type',
+    type: formikType.STRING,
     value: '',
     required: true
   },
   {
-    key: 'active',
-    type: formikType.NUMBER,
-    value: 1,
-    required: false
+    key: 'application_status',
+    type: formikType.STRING,
+    value: '',
+    required: true
+  },
+  {
+    key: 'business_category',
+    type: formikType.STRING,
+    value: '',
+    required: true
   }
 ];

@@ -2,7 +2,6 @@ import {
   DashboardOutlined,
   PeopleAltOutlined,
   VerifiedUserOutlined,
-  LanguageOutlined,
   FormatListNumberedOutlined
 } from '@mui/icons-material';
 
@@ -41,12 +40,6 @@ export const SidebarMenuList: any = [
     name: 'general',
     title: 'General',
     subMenu: [
-      {
-        name: 'language',
-        title: 'Languages',
-        icon: <LanguageOutlined />,
-        link: '/general/languages'
-      },
       {
         name: 'record',
         title: 'Records',

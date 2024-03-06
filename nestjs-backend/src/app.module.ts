@@ -27,9 +27,7 @@ import { UserRoleModule } from './user-roles/user-role.module';
 import { SystemUserModule } from './system-users/system-user.module';
 
 // GENERAL SETUP
-import { LanguageModule } from './languages/language.module';
 import { TownshipModule } from './records/record.module';
-// import { FirebaseAdminModule } from './firebase-admin/firebase-admin.module';
 
 @Module({
   imports: [
@@ -45,7 +43,6 @@ import { TownshipModule } from './records/record.module';
     SystemUserModule,
 
     // GENERAL
-    LanguageModule,
     TownshipModule,
   ],
   providers: [

@@ -127,38 +127,36 @@ export const languageFormFields = [
   }
 ];
 
-export const townshipFormFields = [
+export const recordFormFields = [
   {
-    name: 'name',
+    name: 'application_id',
     type: fieldType.TEXT,
-    label: 'Record *',
+    label: 'ApplicationID *',
     xsGrid: 12
   },
   {
-    name: 'category',
+    name: 'sales_agent_id',
     type: fieldType.TEXT,
-    label: 'Category *',
+    label: 'Sale Agent *',
     xsGrid: 12
   },
   {
-    name: 'page_count',
-    type: fieldType.NUMBER,
-    label: 'Page Count *',
+    name: 'account_type',
+    type: fieldType.TEXT,
+    label: 'Account Type *',
     xsGrid: 12
   },
   {
-    name: 'language_id',
-    type: fieldType.SELECT,
-    label: 'Language *',
-    xsGrid: 12,
-    options: [],
-    optionKeyProp: 'id',
-    optionLabelProp: 'name'
+    name: 'application_status',
+    type: fieldType.TEXT,
+    label: 'Application Status *',
+    xsGrid: 12
   },
   {
-    name: 'active',
-    type: fieldType.SWITCH,
-    label: 'Is active record?',
+    name: 'business_category',
+    type: fieldType.RADIOBOX,
+    label: 'Business Category *',
+    options: options.businessCategory,
     xsGrid: 6
   }
 ];

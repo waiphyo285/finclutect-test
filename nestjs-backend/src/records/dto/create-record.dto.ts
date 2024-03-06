@@ -1,42 +1,35 @@
-import {
-  IsInt,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateRecordDto {
   @IsNotEmpty()
   @IsString()
-  @MaxLength(50)
-  @MinLength(2)
-  @ApiProperty()
-  name: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @MaxLength(50)
-  @MinLength(2)
-  @ApiProperty()
-  category: string;
-
-  @IsNotEmpty()
-  @IsInt()
-  @ApiProperty()
-  page_count: number;
-
-  @IsNotEmpty()
-  @IsString()
   @MaxLength(36)
-  @MinLength(0)
+  @MinLength(1)
   @ApiProperty()
-  language_id: string;
+  application_id: string;
 
-  @IsOptional()
-  @IsInt()
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(100)
   @ApiProperty()
-  active: number;
+  sales_agent_id: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  @ApiProperty()
+  account_type: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  @ApiProperty()
+  application_status: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(25)
+  @ApiProperty()
+  business_category: string;
 }

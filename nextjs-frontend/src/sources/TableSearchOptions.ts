@@ -44,7 +44,7 @@ export const languageSearchOptions = [
 export const recordSearchOptions = [
   ...defaultOption,
   {
-    value: 'name',
-    displayName: 'Record'
+    value: 'sales_agent_id',
+    displayName: 'Sale Agent'
   }
 ];

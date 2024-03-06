@@ -10,6 +10,11 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+enum BSCategory {
+    Simple
+    complex
+}
+
 model AppLevelAccess {
     id String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
 
@@ -75,8 +80,8 @@ model SystemUser {
     password    String @db.VarChar(100)
     description String @db.VarChar(255)
 
-    role_id   String   @db.VarChar(36)
-    user_role UserRole @relation(fields: [role_id], references: [id])
+    role_id   String?   @db.VarChar(36)
+    user_role UserRole? @relation(fields: [role_id], references: [id])
 
     created_at DateTime @default(now())
     updated_at DateTime @default(now())
@@ -84,31 +89,15 @@ model SystemUser {
     @@map("system_user")
 }
 
-model Language {
-    id     String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
-    name   String @db.VarChar(50)
-    active Int    @default(1) @db.TinyInt()
+model FincluRecord {
+    id                 String     @id @unique @default(uuid()) @map("id") @db.VarChar(36)
+    application_id     String     @db.VarChar(36)
+    sales_agent_id     String     @db.VarChar(100)
+    account_type       String     @db.VarChar(50)
+    application_status String     @db.VarChar(50)
+    business_category  BSCategory @default(Simple)
+    created_at         DateTime   @default(now())
+    updated_at         DateTime   @default(now())
 
-    records Record[]
-
-    created_at DateTime @default(now())
-    updated_at DateTime @default(now())
-
-    @@map("language")
-}
-
-model Record {
-    id         String @id @unique @default(uuid()) @map("id") @db.VarChar(36)
-    name       String @db.VarChar(50)
-    category   String @db.VarChar(50)
-    page_count Int    @default(1)
-    active     Int    @default(1) @db.TinyInt()
-
-    language_id String   @db.VarChar(36)
-    language    Language @relation(fields: [language_id], references: [id])
-
-    created_at DateTime @default(now())
-    updated_at DateTime @default(now())
-
-    @@map("record")
+    @@map("finclu_record")
 }

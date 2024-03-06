@@ -83,35 +83,35 @@ export const regionTableColumns = [
   ...lastTableColumns
 ];
 
-export const townshipTableColumns = [
+export const recordTableColumns = [
   {
-    field: 'name',
+    field: 'application_id',
     type: columnType.STRING,
-    headerName: 'Record',
+    headerName: 'ApplicationId',
     flex: 1
   },
   {
-    field: 'category',
+    field: 'sales_agent_id',
     type: columnType.STRING,
-    headerName: 'Category',
+    headerName: 'Sale Agent',
     flex: 1
   },
   {
-    field: 'language',
+    field: 'account_type',
     type: columnType.STRING,
-    headerName: 'Language',
+    headerName: 'Account Type',
     flex: 1
   },
   {
-    field: 'page_count',
+    field: 'application_status',
     type: columnType.STRING,
-    headerName: 'Region',
+    headerName: 'Application Status',
     flex: 1
   },
   {
-    field: 'active',
-    type: columnType.CHIP,
-    headerName: 'Active',
+    field: 'business_category',
+    type: columnType.STRING,
+    headerName: 'Business Category',
     flex: 1
   },
   ...lastTableColumns

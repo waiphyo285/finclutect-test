@@ -64,8 +64,6 @@ function UserPage() {
     return field;
   });
 
-  console.log(modFormField, userRoles);
-
   useEffect(() => memoizedList(userRoleStore), [userRoleStore]);
 
   return (

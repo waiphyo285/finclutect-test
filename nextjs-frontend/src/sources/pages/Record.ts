@@ -1,22 +1,22 @@
 import { recordPageValues } from '../PageValues';
 import { recordModalValues } from '../ModalValues';
+import { recordFormFields } from '../FormFields';
 import { recordInitialValues } from '../InitialValues';
-import { townshipFormFields } from '../FormFields';
-import { townshipTableColumns } from '../TableColumns';
+import { recordTableColumns } from '../TableColumns';
 import { recordSearchOptions } from '../TableSearchOptions';
-import { CommonComponent } from '../prototypes/CommonInstance';
-import { newTownshipFactory } from '@/models/Township';
+import { newRecordFactory } from '@/models/Record';
 import { storeKeys } from '@/utilities/constants/storeKeys';
+import { CommonComponent } from '../prototypes/CommonInstance';
 
 const recordValues = new CommonComponent(
   storeKeys.RECORD,
   recordPageValues,
   recordModalValues,
   recordInitialValues,
-  townshipFormFields,
-  townshipTableColumns,
+  recordFormFields,
+  recordTableColumns,
   recordSearchOptions,
-  newTownshipFactory
+  newRecordFactory
 );
 
 export default recordValues;
