@@ -45,7 +45,7 @@ export class RecordService {
     });
   }
 
-  async create(body: CreateRecordDto): Promise<FincluRecord> {
+  async create(body: CreateRecordDto | any): Promise<FincluRecord> {
     return await this.prisma.fincluRecord.create({ data: body });
   }
 
@@ -67,7 +67,7 @@ export class RecordService {
     return createdObj.count;
   }
 
-  async update(id: string, body: UpdateRecordDto): Promise<FincluRecord> {
+  async update(id: string, body: UpdateRecordDto | any): Promise<FincluRecord> {
     return await this.prisma.fincluRecord.update({
       where: {
         id: id,
